@@ -1,4 +1,7 @@
-package com.epam.infohandling;
+package com.epam.infohandling.parser;
+
+import com.epam.infohandling.entity.Component;
+import com.epam.infohandling.entity.Composite;
 
 public class ParagraphParser extends AbstractParser {
 
@@ -7,13 +10,13 @@ public class ParagraphParser extends AbstractParser {
     }
 
     @Override
-    public Component parse(String text) {
+    public Composite parse(String text) {
 
         Composite composite = new Composite();
         String[] parts = text.split("\\.|\\?|\\!|\\.{3}");
         for (String part : parts) {
-            Component paragraph = getSuccessor().parse(part);
-            composite.add(paragraph);
+            Component sentence = getSuccessor().parse(part);
+            composite.add(sentence);
         }
         return composite;
     }

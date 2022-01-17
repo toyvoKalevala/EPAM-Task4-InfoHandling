@@ -1,8 +1,11 @@
-package com.epam.infohandling;
+package com.epam.infohandling.parser;
 
-public class SentenceParser extends AbstractParser {
+import com.epam.infohandling.entity.Component;
+import com.epam.infohandling.entity.Composite;
 
-    public SentenceParser(Parser successor) {
+public class TextParser extends AbstractParser {
+
+    public TextParser(Parser successor) {
         super(successor);
     }
 
@@ -10,12 +13,11 @@ public class SentenceParser extends AbstractParser {
     public Component parse(String text) {
 
         Composite composite = new Composite();
-        String[] parts = text.split("\\s");
+        String[] parts = text.split("\n");
         for (String part : parts) {
             Component paragraph = getSuccessor().parse(part);
             composite.add(paragraph);
         }
         return composite;
     }
-
 }

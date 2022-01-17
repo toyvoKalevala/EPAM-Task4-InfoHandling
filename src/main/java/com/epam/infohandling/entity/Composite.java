@@ -1,4 +1,5 @@
-package com.epam.infohandling;
+package com.epam.infohandling.entity;
+
 
 import java.util.ArrayList;
 import java.util.List;

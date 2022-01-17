@@ -1,4 +1,4 @@
-package com.epam.infohandling;
+package com.epam.infohandling.parser;
 
 public abstract class AbstractParser implements Parser {
 
@@ -6,6 +6,10 @@ public abstract class AbstractParser implements Parser {
 
     public AbstractParser(Parser successor) {
         this.successor = successor;
+    }
+
+    public AbstractParser() {
+
     }
 
     protected Parser getSuccessor() {

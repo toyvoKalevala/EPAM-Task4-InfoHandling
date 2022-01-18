@@ -10,6 +10,10 @@ public class Lexeme implements Component {
         this.lexemeType = lexemeType;
     }
 
+    public String getValue() {
+        return value;
+    }
+
     public static Lexeme toWord(String value) {
         return new Lexeme(value, LexemeType.WORD);
     }

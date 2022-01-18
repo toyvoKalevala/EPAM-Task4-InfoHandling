@@ -13,7 +13,7 @@ public class ParagraphParser extends AbstractParser {
     public Composite parse(String text) {
 
         Composite composite = new Composite();
-        String[] parts = text.split("\\.|\\?|\\!|\\.{3}");
+        String[] parts = text.split("[\\.\\?\\!\\.{3}]");
         for (String part : parts) {
             Component sentence = getSuccessor().parse(part);
             composite.add(sentence);
